@@ -1,5 +1,11 @@
 from nonebot import on_request, RequestSession, permission, CQHttpError, on_request, on_command, CommandSession, on_notice, NoticeSession
 
+__plugin_name__ = '计算总人数(群专用)'
+__plugin_usage__ = r"""
+命令名称:总人数
+使用方法:总人数
+"""
+
 
 @on_command('get_member_count', aliases=['总人数'], permission=permission.GROUP_ADMIN, only_to_me=False)
 async def count(session: CommandSession):

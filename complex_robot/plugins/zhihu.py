@@ -1,9 +1,15 @@
 from nonebot import on_command, CommandSession
 import aiohttp
 
+__plugin_name__ = '知乎日报'
+__plugin_usage__ = r"""
+命令名称:知乎日报
+使用方法:知乎日报
+"""
+
 
 @on_command('知乎日报')
-async def news(session:CommandSession):
+async def news(session: CommandSession):
     STORY_URL_FORMAT = 'https://daily.zhihu.com/story/{}'
     async with aiohttp.request('GET', 'https://news-at.zhihu.com/api/4/news/latest', headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}) as resp:
         data = await resp.json()

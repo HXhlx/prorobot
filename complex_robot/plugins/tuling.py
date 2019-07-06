@@ -7,9 +7,8 @@ import aiohttp
 
 __plugin_name__ = '智能聊天'
 __plugin_usage = r"""
-智能聊天
-
-直接跟我聊天即可~
+命令名称:智能聊天
+使用方法:直接跟我聊天即可~
 """.strip()
 EXPR_DONT_UNDERSTAND = (
     '我现在还不太明白你在说什么呢，但没关系，以后的我会变得更强呢！',

@@ -3,6 +3,12 @@ from bs4 import BeautifulSoup
 import aiohttp
 import random
 
+__plugin_name__ = '吃什么'
+__plugin_usage__ = r"""
+命令名称:吃什么
+使用方法:早上吃什么 中午吃什么 晚上吃什么
+"""
+
 
 @on_command('meal', aliases=['早上吃什么', '中午吃什么', '晚上吃什么'])
 async def meal(session: CommandSession):

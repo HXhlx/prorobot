@@ -4,9 +4,8 @@ from jieba import posseg
 
 __plugin_name__ = '天气'
 __plugin_usage__ = r"""
-天气查询
-
-天气 [城市名称]
+命令名称:天气查询
+使用方法:天气 [城市名称]
 """
 
 
