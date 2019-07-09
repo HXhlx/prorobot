@@ -31,9 +31,11 @@ async def _(session: CommandSession):
 @on_natural_language(keywords={'天气'})
 async def _(session: NLPSession):
     stripped_msg = session.msg_text.strip()
-    words = posseg.lcut(stripped_msg)
-    city = None
-    for word in words:
-        if word.flag == 'ns':
-            city = word.word
-    return IntentCommand(90, 'weather', current_arg=city or '')
+    msg = stripped_msg.split('天气')
+    for m in msg:
+        words = posseg.lcut(m)
+        city = None
+        for word in words:
+            if word.flag == 'ns':
+                city = word.word
+        return IntentCommand(90, 'weather', current_arg=city or '')
