@@ -1,4 +1,5 @@
 from aiohttp import request
+from complex_robot.secret import APP_SECRET, APP_KEY
 from nonebot import on_command, CommandSession
 import hashlib
 import time
@@ -27,8 +28,6 @@ def truncate(q):
 @on_command('翻译')
 async def traslation(session: CommandSession):
     YOUDAO_URL = 'http://openapi.youdao.com/api'
-    APP_KEY = '45e206e2d677030c'
-    APP_SECRET = 'IbUTNR9HqIg9q8OJWuORnFiyyzbxZ4rd'
     data = {
         'q': truncate(session.current_arg_text),
         'from': 'auto',

@@ -1,4 +1,4 @@
-from nonebot import on_request, RequestSession, permission, CQHttpError, on_request, on_command, CommandSession, on_notice, NoticeSession
+from nonebot import RequestSession, permission, CQHttpError, on_request, on_command, CommandSession, on_notice, NoticeSession
 
 __plugin_name__ = '计算总人数(群专用)'
 __plugin_usage__ = r"""
@@ -12,10 +12,9 @@ async def count(session: CommandSession):
     group_id = session.ctx['group_id']
     try:
         member_list = await session.bot.get_group_member_list(group_id=group_id)
+        await session.send(f'群里一共有{len(member_list)}个人')
     except CQHttpError:
         await session.send('无法获取')
-        return
-    await session.send(f'群里一共有{len(member_list)}个人')
 
 
 @on_request('group')
